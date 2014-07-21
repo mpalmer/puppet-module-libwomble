@@ -13,7 +13,7 @@
 # under the License.
 #
 module Puppet::Parser::Functions
-	newfunction(:concat, :type => :rvalue, :doc => "Concatenates a list of strings or arrays.") do |args|
+	newfunction(:womble_concat, :type => :rvalue, :doc => "Concatenates a list of strings or arrays.") do |args|
 		args.length >= 1 or raise Puppet::ParseError.new("concat: expecting at least 1 argument, got #{args.length}")
 
 		initial = args.shift
