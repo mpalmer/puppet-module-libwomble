@@ -8,6 +8,6 @@ module Puppet::Parser::Functions
 		is_scalar = Puppet::Parser::Functions.function(:is_scalar) or raise Puppet::Error.new("to_i: is_scalar could not be loaded")
 		send(is_scalar, [s]) or raise Puppet::ParseError.new("to_i: invalid argument: #{s} (expecting scalar, got #{s.class})")
 
-		s.to_i.to_s
+		s.to_i
 	end
 end

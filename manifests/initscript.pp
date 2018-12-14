@@ -26,10 +26,10 @@ define libwomble::initscript($ensure  = present,
 	}
 
 	case $::operatingsystem {
-		RedHat,CentOS: {
+		"RedHat", "CentOS": {
 			$initscript = "/etc/rc.d/init.d/${name}"
 		}
-		Debian: {
+		"Debian": {
 			$initscript = "/etc/init.d/${name}"
 		}
 		default: {
@@ -38,17 +38,17 @@ define libwomble::initscript($ensure  = present,
 	}
 
 	case $ensure {
-		present: {
+		"present": {
 			if $source {
 				file { $initscript:
 					source  => $source,
-					mode    => 0555,
+					mode    => "0555",
 					links   => follow;
 				}
 			} else {
 				file { $initscript:
 					content => $content,
-					mode    => 0555;
+					mode    => "0555";
 				}
 			}
 
@@ -60,7 +60,7 @@ define libwomble::initscript($ensure  = present,
 				}
 			}
 		}
-		absent: {
+		"absent": {
 			file { $initscript:
 				ensure => absent;
 			}

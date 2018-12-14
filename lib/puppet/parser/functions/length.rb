@@ -19,11 +19,11 @@ module Puppet::Parser::Functions
 
 		case x
 		when Hash, Array
-			x.length.to_s
+			x.length
 		else
 			is_scalar = Puppet::Parser::Functions.function(:is_scalar) or raise Puppet::Error.new("length: is_scalar could not be loaded")
 			send(is_scalar, [x]) or raise Puppet::ParseError.new("length: invalid argument: #{x} (expecting scalar or Array or Hash, got #{x.class})")
-			x.to_s.length.to_s
+			x.to_s.length
 		end
 	end
 end
