@@ -1,4 +1,4 @@
-# Copyright 2015 Matt Palmer <matt@hezmatt.org>
+# Copyright 2015, 2020 Matt Palmer <matt@hezmatt.org>
 #
 # Licensed under the Apache License, Version 2.0 (the "License"); you may
 # not use this file except in compliance with the License.  You may obtain a
@@ -15,7 +15,7 @@
 require 'etc'
 
 module Puppet::Parser::Functions
-	newfunction(:homedir, :type => :rvalue, :doc => "Retrieve the home directory for the given user") do |args|
-		Etc.getpwnam(args[0]).dir
+	newfunction(:uid, :type => :rvalue, :doc => "Retrieve the given user's numeric user ID") do |args|
+		Etc.getpwnam(args[0]).uid
 	end
 end
